@@ -36,13 +36,14 @@ VALIDATE(){
 dnf install mysql-server -y &>>$lOGS_FILE_NAME
 VALIDATE $? "installing mysql-server"
 
-systemctl start mysqlId &>>$lOGS_FILE_NAME
+systemctl enable mysqlId &>>$lOGS_FILE_NAME
 VALIDATE $? "Enabling mysql-server"
 
 systemctl start mysqlId &>>$lOGS_FILE_NAME
 VALIDATE $? "Starting mysql-server"
 
 mysql -h mysql.sree84s.site -u root -pExpenseApp@1 -e 'show databases;' &>>$lOGS_FILE_NAME
+
 if [ $? -ne 0 ]
 then
     echo -e "mysql password not setup, $B setting up ..WAIT $N " &>>$lOGS_FILE_NAME
