@@ -49,7 +49,7 @@ VALIDATE $? "Removing old version of code"
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$lOGS_FILE_NAME
 VALIDATE $? "Downloading the code in /tmp/ folder"
 
-cd /usr/share/nginx/html &>>$lOGS_FILE_NAME
+cd /usr/share/nginx/html #&>>$lOGS_FILE_NAME
 VALIDATE $? "Moving to the html dir"
 
 unzip /tmp/frontend.zip &>>$lOGS_FILE_NAME
