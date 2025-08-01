@@ -23,23 +23,23 @@ echo "Script started executing at:: $TIMESTAMP" &>>$lOGS_FILE_NAME
 
 CHECK_ROOT 
 
-VALIDATE(){
-    if [ $1 -ne 0 ]
-    then 
-        echo -e "$2 ...... $R FAILURE $N "
-        exit 1
-    else
-        echo -e "$2 ....... $G SUCCESS $N "
-    fi
-}
+# VALIDATE(){
+#     if [ $1 -ne 0 ]
+#     then 
+#         echo -e "$2 ...... $R FAILURE $N "
+#         exit 1
+#     else
+#         echo -e "$2 ....... $G SUCCESS $N "
+#     fi
+# }
 
 dnf install mysql-server -y &>>$lOGS_FILE_NAME
 VALIDATE $? "installing mysql-server"
 
-systemctl enable mysqId &>>$lOGS_FILE_NAME
+systemctl enable mysqld &>>$lOGS_FILE_NAME
 VALIDATE $? "Enabling mysql-server"
 
-systemctl start mysqId &>>$lOGS_FILE_NAME
+systemctl start mysqld &>>$lOGS_FILE_NAME
 VALIDATE $? "Starting mysql-server"
 
 mysql -h mysql.sree84s.site -u root -pExpenseApp@1 -e 'show databases;' &>>$lOGS_FILE_NAME
