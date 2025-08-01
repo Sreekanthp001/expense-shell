@@ -109,6 +109,9 @@ VALIDATE $? "Starting Nginx Server"
 rm -rf /usr/share/nginx/html/* &>>$LOG_FILE_NAME
 VALIDATE $? "Removing existing version of code"
 
+sudo mkdir -p /usr/share/nginx/html
+VALIDATE $? "Creating html path"
+
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE_NAME
 VALIDATE $? "Downloading Latest code"
 
