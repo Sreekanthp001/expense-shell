@@ -36,10 +36,10 @@ VALIDATE(){
 dnf install mysql-server -y &>>$lOGS_FILE_NAME
 VALIDATE $? "installing mysql-server"
 
-systemctl enable mysqlId &>>$lOGS_FILE_NAME
+systemctl enable mysqId &>>$lOGS_FILE_NAME
 VALIDATE $? "Enabling mysql-server"
 
-systemctl start mysqlId &>>$lOGS_FILE_NAME
+systemctl start mysqId &>>$lOGS_FILE_NAME
 VALIDATE $? "Starting mysql-server"
 
 mysql -h mysql.sree84s.site -u root -pExpenseApp@1 -e 'show databases;' &>>$lOGS_FILE_NAME
