@@ -43,7 +43,7 @@ VALIDATE $? "Enabling nginx"
 systemctl start nginx &>>$lOGS_FILE_NAME
 VALIDATE $? "Starting nginx"
 
-rm -rf /usr/share/nginx/html* &>>$lOGS_FILE_NAME
+rm -rf /usr/share/nginx/html/* &>>$lOGS_FILE_NAME
 VALIDATE $? "Removing old version of code"
 
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$lOGS_FILE_NAME
